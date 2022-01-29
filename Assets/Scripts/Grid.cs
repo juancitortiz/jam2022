@@ -36,6 +36,11 @@ public class Grid
         }
         Debug.DrawLine(GetWorldPositionTopY(width, 0), GetWorldPositionTopY(width, height), Color.red, 1000f);
     }
+
+    public Vector3 GetWorldPosition(int x, int y, int z)
+    {
+        return new Vector3(x, y, z) * this.cellSize + this.originPosition;
+    }
     public Vector3 GetWorldPositionTopY(int x, int y)
     {
         return new Vector3(x, 0, y) * this.cellSize + this.originPosition;
