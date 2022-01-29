@@ -2,3 +2,4 @@
 .vsconfig
 Assembly-CSharp.csproj
 Temp/
+Logs/
