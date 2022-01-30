@@ -10,6 +10,9 @@ public class Manager : MonoBehaviour
     [SerializeField]
     private Sea sea;
 
+    public delegate void ChangeScore(int value);
+    public event ChangeScore OnChangeScore;
+
     private void Awake()
     {
         platforms = GetComponentsInChildren<Plataforma>();
