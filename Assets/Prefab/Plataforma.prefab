@@ -47,5 +47,5 @@ MonoBehaviour:
   gridHeight: 10
   cellSize: 1
   cubo: {fileID: 139982039695241194, guid: 725ba89e4d83db54981b2fa0d01b16e5, type: 3}
-  gato: {fileID: 4351596884885561314, guid: c41abce9aae3cbb4b994882f1fc40810, type: 3}
+  gatoPrefab: {fileID: 4351596884885561314, guid: c41abce9aae3cbb4b994882f1fc40810, type: 3}
   player1: 0

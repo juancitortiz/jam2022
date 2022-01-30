@@ -14,7 +14,8 @@ public class Plataforma : MonoBehaviour
     [SerializeField]
     private GameObject cubo;
     [SerializeField]
-    private GameObject gato;
+    private GameObject gatoPrefab;
+    private GameObject gatoInstance = null;
     private List<GameObject> cubos = new List<GameObject>();
     public bool player1;
 
@@ -38,9 +39,9 @@ public class Plataforma : MonoBehaviour
 
                 if (i == xRandom && j == yCoso)
                 {
-                    gato = Instantiate(gato, grid.GetWorldPosition(i, (int)transform.position.y + 2, j), Quaternion.identity);
-                    gato.GetComponent<Gato>().player1 = player1;
-                    gato.SetActive(true);
+                    gatoInstance = Instantiate(gatoPrefab, grid.GetWorldPosition(i, (int)transform.position.y + 2, j), Quaternion.identity);
+                    gatoInstance.GetComponent<Gato>().player1 = player1;
+                    gatoInstance.SetActive(true);
                 }
             }
         }
@@ -52,5 +53,6 @@ public class Plataforma : MonoBehaviour
         {
             Destroy(c.gameObject);
         }
+        Destroy(gatoInstance);
     }
 }
