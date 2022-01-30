@@ -12,11 +12,15 @@ public class Gato : MonoBehaviour
     [SerializeField]
     private Transform tipCanyon;
     private Vector2 dir = Vector2.zero;
+    private Animator animator;
 
     [SerializeField]
     private GameObject bala;
 
-
+    private void Awake()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
     private void Update()
     {
         HandleMovement(Time.deltaTime);
@@ -74,6 +78,10 @@ public class Gato : MonoBehaviour
         }
         if(dir != Vector2.zero)
             transform.rotation = Quaternion.LookRotation(new Vector3(dir.x, 0f, dir.y));
+        if (dir == Vector2.zero)
+            animator.SetBool("Running", false);
+        else
+            animator.SetBool("Running", true);
     }
 
     public void HandleShooting(bool player1, Transform origin)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
@@ -9,8 +10,10 @@ public class Manager : MonoBehaviour
     private Plataforma[] platforms;
     [SerializeField]
     private Sea sea;
+    [SerializeField]
+    private UIManager UI;
 
-    public delegate void ChangeScore(int value);
+    public delegate void ChangeScore(int value, int value2);
     public event ChangeScore OnChangeScore;
 
     private void Awake()
@@ -18,6 +21,8 @@ public class Manager : MonoBehaviour
         platforms = GetComponentsInChildren<Plataforma>();
         sea = GetComponentInChildren<Sea>();
         sea.OnCatFall += EndGame;
+        if (UI != null)
+            UI.OnEndGame += EndMatch;
     }
 
     private void EndGame(Gato gato)
@@ -26,6 +31,7 @@ public class Manager : MonoBehaviour
             score[1]++;
         else
             score[0]++;
+        OnChangeScore?.Invoke(score[0], score[1]);
         foreach (Plataforma platform in platforms)
         {
             platform.DeleteAll();
@@ -33,8 +39,22 @@ public class Manager : MonoBehaviour
         }
     }
 
+    private void EndMatch(int player)
+    {
+        if(player == 1)
+        {
+
+        }
+        else
+        {
+
+        }
+        SceneManager.LoadScene("MainScene");
+    }
+
     private void OnDisable()
     {
         sea.OnCatFall -= EndGame;
+        UI.OnEndGame -= EndMatch;
     }
 }
