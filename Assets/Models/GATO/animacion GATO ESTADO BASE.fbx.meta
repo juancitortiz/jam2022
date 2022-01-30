@@ -9,7 +9,27 @@ ModelImporter:
   - first:
       74: -2463781497245029270
     second: metarig|metarigAction.001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fur
+    second: {fileID: 2100000, guid: 31f770b3c7147414a98fd28556782ed9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ojos
+    second: {fileID: 2100000, guid: 7fb5b69d2bbd62e4fa80eace32810f83, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "ca\xF1on"
+    second: {fileID: 2100000, guid: 58ca80394fe9d534bb98fc74724ac4ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ciborg
+    second: {fileID: 2100000, guid: cd839c3c0325a024e83a172362fa9412, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
