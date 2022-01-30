@@ -6,6 +6,8 @@ public class Gato : MonoBehaviour
 {
     [SerializeField]
     private float velocity = 10f;
+    [SerializeField]
+    private float shootingForce = 50f;
     public bool player1;
     [SerializeField]
     private Transform tipCanyon;
@@ -81,7 +83,7 @@ public class Gato : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.L))
             {
                 GameObject newBala = Instantiate(bala, tipCanyon.position, tipCanyon.rotation);
-                newBala.GetComponent<Rigidbody>().AddForce(origin.right * 30f, ForceMode.Impulse);
+                newBala.GetComponent<Rigidbody>().AddForce(origin.right * shootingForce, ForceMode.Impulse);
 
             }
         }
@@ -90,7 +92,7 @@ public class Gato : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 GameObject newBala = Instantiate(bala, tipCanyon.position, tipCanyon.rotation);
-                newBala.GetComponent<Rigidbody>().AddForce(origin.right * 30f, ForceMode.Impulse);
+                newBala.GetComponent<Rigidbody>().AddForce(origin.right * shootingForce, ForceMode.Impulse);
             }
         }
     }

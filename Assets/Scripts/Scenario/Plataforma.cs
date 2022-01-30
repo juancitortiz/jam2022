@@ -15,7 +15,7 @@ public class Plataforma : MonoBehaviour
     private GameObject cubo;
     [SerializeField]
     private GameObject gatoPrefab;
-    private GameObject gatoInstance = null;
+    private GameObject gatoInstance;
     private List<GameObject> cubos = new List<GameObject>();
     public bool player1;
 

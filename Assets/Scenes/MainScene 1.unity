@@ -267,7 +267,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -353,6 +353,26 @@ PrefabInstance:
     - target: {fileID: 7952079505964755659, guid: 196a802215d75c14980f33e68514155c, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952079506372479712, guid: 196a802215d75c14980f33e68514155c, type: 3}
+      propertyPath: gato
+      value: 
+      objectReference: {fileID: 4351596884885561314, guid: c41abce9aae3cbb4b994882f1fc40810, type: 3}
+    - target: {fileID: 7952079506372479712, guid: 196a802215d75c14980f33e68514155c, type: 3}
+      propertyPath: player1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952079506372479716, guid: 196a802215d75c14980f33e68514155c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952079506372479716, guid: 196a802215d75c14980f33e68514155c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952079506372479716, guid: 196a802215d75c14980f33e68514155c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 196a802215d75c14980f33e68514155c, type: 3}
