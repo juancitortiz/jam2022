@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Gato : MonoBehaviour
 {
+    private Rigidbody Rigidbody;
     [SerializeField]
     private float velocity = 10f;
     [SerializeField]
     private float shootingForce = 50f;
+    [SerializeField]
+    private float jumpForce;
     public bool player1;
     [SerializeField]
     private Transform tipCanyon;
     private Vector2 dir = Vector2.zero;
     private Animator animator;
+    private bool canJump;
 
     [SerializeField]
     private GameObject bala;
@@ -20,11 +24,14 @@ public class Gato : MonoBehaviour
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
+        Rigidbody = GetComponent<Rigidbody>();
+        canJump = true;
     }
     private void Update()
     {
         HandleMovement(Time.deltaTime);
         HandleShooting(player1, transform);
+        HandleJump();
     }
 
     public void HandleMovement(float deltaTime)
@@ -105,8 +112,34 @@ public class Gato : MonoBehaviour
         }
     }
 
+    private void HandleJump()
+    {
+        if (!player1)
+        {
+            if (Input.GetKeyDown(KeyCode.RightControl) && canJump)
+            {
+                canJump = false;
+                Rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.E) && canJump)
+            {
+                canJump = false;
+                Rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            }
+        }
+    }
+
     public void KillKat()
     {
         Destroy(gameObject);
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Cubo"))
+            canJump = true;
     }
 }
